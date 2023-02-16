@@ -41,14 +41,17 @@ echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> ~/.bash_profile && \
 source ~/.bash_profile && \
 go version
 
+#install iginte
+curl https://get.ignite.com/cli! | bash
+
+
 echo -e "\e[1m\e[32m3. Downloading and building binaries... \e[0m" && sleep 1
 # download binary
 cd $HOME
-git clone https://github.com/bluzelle/bluzelle-public
-cd bluzelle-public/curium
+git clone https://github.com/bluzelle/bluzelle-public bluzelle
+cd bluzelle/curium
 git checkout 7bc61cc3ffe0cc90228b10a4db11f678d1db1160
-go build -o curiumd cmd/curiumd/main.go
-mv curiumd /root/go/bin/curiumd
+ignite chain serve -f -v
 
 
 # config
