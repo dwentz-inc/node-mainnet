@@ -63,6 +63,7 @@ curiumd config node tcp://localhost:${BLUZELLE_PORT}657
 curiumd init $NODENAME --chain-id $BLUZELLE_CHAIN_ID
 
 # download genesis and addrbook
+rm -rf .curium/config/genesis.json
 curl https://bluzelle-rpc.genznodes.dev/genesis | jq -r '.result.genesis' > genesis.json
 mv genesis.json .curium/config/genesis.json
 
